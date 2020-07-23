@@ -6,6 +6,7 @@ typedef pair<int, int> pi;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<vi> vvi;
+typedef vector<vl> vvl;
 #define all(x) (x).begin(), (x).end()
 #define endl "\n"
 #define pb push_back
@@ -18,20 +19,21 @@ const ll inf = 2e9 + 5;
 double PI = 3.14159265358979323846;
 
 
+
 void solve() {
 
     
 }
 
+
 int32_t main()
 {
+
     IOS
-    
-    int T;
-    T = 1;
-    //cin >> T;
-    while (T--) {
-        solve();
-    }
+
+    //int T; cin >> T; while(T--)
+    solve();
+    return 0;
+
 
 }
