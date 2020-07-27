@@ -1,12 +1,11 @@
-template <typename T>
-T POW(T a, T b) {
-	T r = 1;
+ll POW(ll a, ll b) {
+	ll res = 1;
 	while (b) {
 		if (b & 1) {
-			r *= a;
+			res *= a;
 		}
 		a *= a;
 		b >>= 1;
 	}
-	return r;
+	return res;
 }
