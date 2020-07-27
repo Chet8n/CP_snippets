@@ -1,5 +1,5 @@
 template <typename T>
-T power(T a, T b) {
+T POW(T a, T b) {
 	T r = 1;
 	while (b) {
 		if (b & 1) {
