@@ -1,4 +1,3 @@
-
 template <typename T>
 class Matrix {
 
@@ -6,13 +5,14 @@ public:
 
     vector < vector <T> > A;
     int r,c;
+
     //Default Constructor
-    Matrix()    
+    Matrix()
     {
         this->r = 0;
         this->c = 0;
     }
-    
+
     //Matrix with given dimensions and random values
     Matrix(int r,int c)
     {
@@ -24,6 +24,7 @@ public:
     //Matrix with given value and dimensions
     Matrix(int r,int c,const T &val)
     {
+
         this->r = r;
         this->c = c;
         A.assign(r , vector <T> (c , val));
@@ -49,11 +50,21 @@ public:
             cout << endl;
         }
     }
-    
+
+    //Input called to get input
+    //Put custom code
+    void input()
+    {
+        // for(int i=0;i<r;i++)
+        //     for(int j=0;j<c;j++)
+        //         define inout here
+    }
+
     //Overloaded * operator to multiply 2 matrices
     //with conformable dimensions
     Matrix operator * (const Matrix<T> &B)
-    {        
+    {
+        
         assert(c == B.r);
         int i,j,k;
         int x = r;
@@ -67,17 +78,39 @@ public:
                 for(k=0 ; k<y ; k++)
                 {
                     C[i][j] = (C[i][j] + ( (long long )A[i][k] * (long long)B[k][j] ) );
+                    #ifdef mod
                     C[i][j] %= mod;
+                    #endif
                 }
+
         return C;
     }
 
     //Overloaded *= operator to add 2 matrices
     //of conformable dimensions
     //and save result in first matrix
-    Matrix operator *= (const Matrix<T> &B)
+    void operator *= (const Matrix<T> &B)
     {
-        return *this = *this * B;
+        assert(c == B.r);
+        int i,j,k;
+        int x = r;
+        int y = c;
+        int z = B.c;
+
+        Matrix <T> C(x,z,0);
+
+        for(i=0 ; i<x ; i++)
+            for(j=0 ; j<z ; j++)
+                for(k=0 ; k<y ; k++)
+                {
+                    C[i][j] = (C[i][j] + ( (long long)A[i][k] * (long long)B[k][j] ) );
+                    #ifdef mod
+                    C[i][j] %= mod;
+                    #endif
+                }
+        this->r = C.r;
+        this->c = C.c;
+        this->A = C.A;
     }
 
     //Overloaded + operator to add 2 matrices
