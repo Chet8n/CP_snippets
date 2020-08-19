@@ -1,5 +1,5 @@
 template <typename T>
-T inverse(T a, T m) {
+T minverse(T a, T m) {
 	a = a % m;
 	if (a < 0) {
 		a += m;
